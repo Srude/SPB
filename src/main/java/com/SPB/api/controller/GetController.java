@@ -1,17 +1,18 @@
 package com.SPB.api.controller;
 
+import com.SPB.api.dto.MemberDTO;
 import org.springframework.web.bind.annotation.*;
 
 import java.util.Map;
 
 @RestController
-@RequestMapping("/api")
+@RequestMapping("/get-api")
 public class GetController {
     @GetMapping("/variable/{variable}")
     public String getVariable(@PathVariable String variable){
         return variable;
     }
-    //http://localhost:8088/api/variable/test
+    //http://localhost:8088/get-api/variable/test
 
     @GetMapping("/request1")
     public String getRequestParam1(
@@ -19,7 +20,7 @@ public class GetController {
 
         return name + " " + email + " " + organization;
     }
-    //http://localhost:8088/api/request1?name=v&email=b&organization=n
+    //http://localhost:8088/get-api/request1?name=v&email=b&organization=n
 
     @GetMapping("/request2")
     public String getRequestParam2(@RequestParam Map<String,String> param){
@@ -29,7 +30,15 @@ public class GetController {
         });
         return builder.toString();
     }
-    //http://localhost:8088/api/request2?key1=v&key2=b
+    //http://localhost:8088/get-api/request2?key1=v&key2=b
+
+    @GetMapping("/request3")
+    public String getRequestParam3(MemberDTO memberDTO){
+        return memberDTO.toString();
+    }
+    //http://localhost:8088/get-api/request3?name=v&email=b&organization=n
+
+
 
 }
 
