@@ -13,7 +13,7 @@ public class PostController {
         return "PostApi";
     }
 
-    @PostMapping(value = "/member1")
+    @PostMapping(value = "/member")
     public String postMember(@RequestBody Map<String, Object> postData){
         StringBuilder sb = new StringBuilder();
 
