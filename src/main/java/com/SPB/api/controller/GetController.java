@@ -8,6 +8,11 @@ import java.util.Map;
 @RestController
 @RequestMapping("/get-api")
 public class GetController {
+
+    @RequestMapping(value = "/hello", method = RequestMethod.GET)
+    public String getHello(){
+        return "Hello";
+    }
     @GetMapping("/variable/{variable}")
     public String getVariable(@PathVariable String variable){
         return variable;
@@ -57,10 +62,3 @@ public class GetController {
 
 
 
-
-//public class GetController {
-//    @RequestMapping(value = "/hello", method = RequestMethod.GET)
-//    public String getHello(){
-//        return "Hello";
-//    }
-//}
